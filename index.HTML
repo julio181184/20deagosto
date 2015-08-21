@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+        <title>MEME-GENERATOR</title> 
+        <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+       
+        </head>
+        <body>
+        <h1 class="text-center"> MEME GENERATOR </h1>
+         <div class="container">
+             <div class="row">
+                <div class="col-md-3 col-md-push-1">
+                 here is the ...
+                </div>        
+                <div id="canvas-container" class="col-md-6">
+                 <canvas id="canvas"></canvas>
+                </div>
+             </div>    
+         </div>
+            
+            
+            <canvas id="c"></canvas>
+            <script>
+                var c = document.getElementById("canvas");
+                var cc = document.getElementById("canvas-container");
+                c.width = cc.offsetWidth;
+                c.height = cc.offsetWidth*.7;
+                
+                var ctx = c.getContext("2d");
+                var image = new Image();
+                var image1 = new Image();
+                image.onload = function(){
+                    var imgHeight = image.height*c.width/image.width;
+                    console.log("Loaded Image");
+                    ctx.drawImage(image,0,0,c.width, imgHeight);
+                    ctx.beginPath();
+                    ctx.moveTo(75,75);
+                    ctx.lineTo(125,125);
+                    ctx.lineTo(125,75);
+                    ctx.lineTo(75,75);
+                    ctx.fillStyle="rgb(51,241,169)";
+                    ctx.fill();
+                    ctx.fillRect(200,100,250,100);
+                };
+                
+                image1.onload = function(){  
+                    ctx.drawImage(image1,50,50,200, 200);
+                };
+                image.src = "image/paisaje.jpg";
+                image1.src = "image/7.jpg";
+                
+            </script>
+                
+            
+        </body>   
+    </html>
